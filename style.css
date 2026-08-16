@@ -1,0 +1,217 @@
+/* ===== ROOT THEME ===== */
+:root {
+    --bg: #020617;
+    --card: rgba(255,255,255,0.06);
+    --text: #ffffff;
+    --accent: #0ea5e9;
+    --accent2: #6366f1;
+}
+
+.light {
+    --bg: #f1f5f9;
+    --card: rgba(0,0,0,0.05);
+    --text: #0f172a;
+}
+
+/* ===== BASE ===== */
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s ease;
+    overflow-x: hidden;
+}
+
+/* ===== BACKGROUND GLOW ===== */
+.bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 30%, var(--accent), transparent 40%),
+        radial-gradient(circle at 80% 70%, var(--accent2), transparent 40%);
+    filter: blur(120px);
+    opacity: 0.35;
+    z-index: -1;
+    animation: floatBg 10s infinite alternate ease-in-out;
+}
+
+@keyframes floatBg {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-30px); }
+}
+
+/* ===== TOPBAR ===== */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.toggle {
+    background: var(--card);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    color: var(--text);
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ===== ANNOUNCEMENT ===== */
+.announcement {
+    background: var(--card);
+    padding: 16px;
+    border-radius: 14px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeUp 0.6s ease;
+}
+
+/* ===== STATS ===== */
+.stats {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat {
+    flex: 1;
+    background: var(--card);
+    padding: 15px;
+    border-radius: 14px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    transition: 0.3s;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+}
+
+.stat span {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ===== GRID ===== */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    animation: fadeUp 0.6s ease;
+}
+
+/* ===== INPUTS ===== */
+input, textarea, select {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.08);
+    color: var(--text);
+}
+
+/* ===== BUTTON ===== */
+button {
+    margin-top: 12px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    color: white;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--accent);
+}
+
+/* ===== REVIEWS ===== */
+.reviews-section {
+    margin-top: 40px;
+}
+
+.reviews-section h2 {
+    margin-bottom: 10px;
+}
+
+.review {
+    background: var(--card);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    backdrop-filter: blur(15px);
+    animation: slideIn 0.5s ease;
+}
+
+.review b {
+    font-size: 14px;
+}
+
+/* ===== LOADER ===== */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    animation: load 1s infinite linear;
+}
+
+@keyframes load {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+}
