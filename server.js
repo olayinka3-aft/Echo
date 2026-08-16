@@ -13,7 +13,7 @@ let db = JSON.parse(fs.readFileSync('./db.json', 'utf-8'));
 function saveDB() {
     fs.writeFileSync('./db.json', JSON.stringify(db, null, 2));
 }
-
+const admin = JSON.parse(fs.readFileSync('./admin.json', 'utf-8'));
 // ================= ROUTES =================
 
 // Get all data
