@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echo X</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* 🔥 Smooth entry animation */
+body {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- BACKGROUND -->
+<div class="bg"></div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="logo">Echo X</div>
+    <button class="toggle" onclick="toggleTheme()">Theme</button>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+    <!-- ANNOUNCEMENT -->
+    <div class="announcement" id="announcement">
+        Loading...
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat">
+            <span id="avgRating">0.0</span>
+            <small>Average Rating</small>
+        </div>
+        <div class="stat">
+            <span id="totalReviews">0</span>
+            <small>Total Reviews</small>
+        </div>
+    </div>
+
+    <!-- GRID -->
+    <div class="grid">
+
+        <!-- COMPLAINT -->
+        <div class="card">
+            <h2>Submit Complaint</h2>
+            <input id="name" placeholder="Your name">
+            <textarea id="complaint" placeholder="Describe your issue..."></textarea>
+            <button onclick="sendComplaint()">Submit</button>
+        </div>
+
+        <!-- REVIEW -->
+        <div class="card">
+            <h2>Leave Review</h2>
+            <input id="reviewText" placeholder="Your feedback">
+            <select id="stars">
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select>
+            <button onclick="sendReview()">Post</button>
+        </div>
+
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="reviews-section">
+        <h2>Reviews</h2>
+        <div id="reviews"></div>
+    </div>
+
+</div>
+
+<!-- LOADING SKELETON -->
+<div id="loader" class="loader"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
