@@ -20,7 +20,16 @@ const admin = JSON.parse(fs.readFileSync('./admin.json', 'utf-8'));
 app.get('/data', (req, res) => {
     res.json(db);
 });
+// Admin login
+app.post('/login', (req, res) => {
+    const { password } = req.body;
 
+    if (password === admin.password) {
+        return res.json({ success: true });
+    } else {
+        return res.json({ success: false });
+    }
+});
 // Submit complaint
 app.post('/complaint', (req, res) => {
     const { name, text } = req.body;
